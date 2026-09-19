@@ -1,0 +1,6 @@
+{
+  "name": "মাহমুদ টেলিকম Online Shop",
+  "description": "মাহমুদ টেলিকম - সেরা মোবাইল, এক্সেসরিজ এবং ইলেকট্রনিক্স পণ্যের অনলাইন শপ।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

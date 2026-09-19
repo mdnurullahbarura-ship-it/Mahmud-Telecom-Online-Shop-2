@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique user ID" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "customer"] },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "E-commerce product details",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "stockQuantity": { "type": "number" },
+        "sku": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "inactive"] }
+      },
+      "required": ["name", "category", "price", "stockQuantity", "sku", "status"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer order record",
+      "type": "object",
+      "properties": {
+        "customerId": { "type": "string" },
+        "total": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "processing", "shipped", "delivered", "cancelled"] },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["customerId", "total", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User documents"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Product collection"
+    },
+    "/categories/{categoryId}": {
+      "schema": "object",
+      "description": "Categories for products"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders"
+    },
+    "/legalPages/{pageId}": {
+      "schema": "object",
+      "description": "Legal pages content"
+    },
+    "/settings/site": {
+      "schema": "object",
+      "description": "Global site settings"
+    }
+  }
+}
